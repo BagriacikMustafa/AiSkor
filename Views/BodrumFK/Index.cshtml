@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model AiSkor.Models.ViewModels.BodrumFKViewModel
+
+<div class="container">
+    <h1 class="text-center mb-4">Bodrum FK</h1>
+
+    <div class="row">
+        <!-- Kadro Tablosu -->
+        <div class="col-md-6">
+            <h2 class="text-center">Bodrum FK Kadrosu</h2>
+            <table class="table table-bordered table-striped table-sm text-center">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Mevki</th>
+                        <th>Uyruk</th>
+                        <th>Futbolcu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var oyuncu in Model.Kadro)
+                    {
+                        <tr>
+                            <td>@oyuncu.No</td>
+                            <td>@oyuncu.Mevki</td>
+                            <td>@oyuncu.Uyruk</td>
+                            <td>@oyuncu.Futbolcu</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Fikstur Tablosu -->
+        <div class="col-md-6">
+            <h2 class="text-center">Bodrum FK Fikstürü</h2>
+            <table class="table table-bordered table-striped table-sm text-center">
+                <thead>
+                    <tr>
+                        <th>Hafta</th>
+                        <th>Ev Sahibi</th>
+                        <th>Skor</th>
+                        <th>Deplasman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var mac in Model.Fikstur)
+                    {
+                        <tr>
+                            <td>@mac.Hafta</td>
+                            <td>@mac.EvSahibi</td>
+                            <td>
+                                @if (mac.EvSkor.HasValue && mac.DeplasmanSkor.HasValue)
+                                {
+                                    @($"{mac.EvSkor} - {mac.DeplasmanSkor}")
+                                }
+                                else
+                                {
+                                    @("Belirlenmedi")
+                                }
+                            </td>
+                            <td>@mac.Deplasman</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

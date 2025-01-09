@@ -1,0 +1,147 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AiSkor
+build_property.RootNamespace = AiSkor
+build_property.ProjectDir = C:\Users\Mustafa\source\repos\AiSkor\AiSkor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Mustafa\source\repos\AiSkor\AiSkor
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/AdanaDemirspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRhbmFEZW1pcnNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Alanyaspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxhbnlhc3BvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Antalyaspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW50YWx5YXNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Basaksehirspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWtzZWhpcnNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Besiktas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVzaWt0YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/BodrumFK/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kcnVtRktcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/CaykurRizespor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F5a3VyUml6ZXNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Eyupspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXl1cHNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Fenerbahce/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVuZXJiYWhjZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Fikstur/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlrc3R1clxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Filter/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsdGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Galatasaray/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsYXRhc2FyYXlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Gaziantep/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2F6aWFudGVwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Goztepe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR296dGVwZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Hatayspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGF0YXlzcG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Kasimpasa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2FzaW1wYXNhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Kayserispor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F5c2VyaXNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Konyaspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29ueWFzcG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/PuanDurumu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVhbkR1cnVtdVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Samsunspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Ftc3Vuc3BvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Sivasspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2l2YXNzcG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Trabzonspor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhYnpvbnNwb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mustafa/source/repos/AiSkor/AiSkor/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-dogrcrjzgi

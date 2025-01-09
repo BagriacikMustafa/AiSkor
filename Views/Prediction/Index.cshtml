@@ -1,0 +1,37 @@
+﻿@* @model AiSkor.Models.ModelInput
+
+<h1>Futbol Sonucu Tahmini</h1>
+
+<form asp-action="Prediction" method="post">
+    <div>
+        <label>Ev Sahibi:</label>
+        <input asp-for="Ev_Sahibi" type="text" required />
+    </div>
+    <div>
+        <label>Deplasman:</label>
+        <input asp-for="Deplasman" type="text" required />
+    </div>
+    <div>
+        <label>Ev Sakat:</label>
+        <input asp-for="Ev_Sakat" type="number" required />
+    </div>
+    <div>
+        <label>Deplasman Sakat:</label>
+        <input asp-for="Deplasman_Sakat" type="number" required />
+    </div>
+    <div>
+        <label>Ev Cezalı:</label>
+        <input asp-for="Ev_Cezali" type="number" required />
+    </div>
+    <div>
+        <label>Deplasman Cezalı:</label>
+        <input asp-for="Deplasman_Cezali" type="number" required />
+    </div>
+    <button type="submit">Tahmin Yap</button>
+</form>
+
+@if (ViewBag.PredictedLabel != null)
+{
+    <h2>Tahmin Edilen Sonuç: @ViewBag.PredictedLabel</h2>
+}
+ *@

@@ -1,0 +1,162 @@
+﻿@{
+    ViewData["Title"] = "SüperLig Maç Tahmini";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        /* Stil dosyası optimize edilmiştir */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #034694, #ffffff);
+            color: #333;
+        }
+        .header, .footer {
+            background-color: #034694;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .form-section {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        select, input, button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #034694;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #022C6A;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>⚽ SüperLig Maç Tahmini</h1>
+    </header>
+    <main class="main-content">
+        <section class="form-section">
+            <h2>Tahmin Formu</h2>
+            <form method="post" asp-controller="Ai" asp-action="Predict" class="prediction-form" onsubmit="return validateForm()">
+                <label for="evSahibi">Ev Sahibi:</label>
+                <select id="evSahibi" name="evSahibi" required>
+                    <option value="Galatasaray">Galatasaray</option>
+                    <option value="Kasimpasa">Kasımpaşa</option>
+                    <option value="Antalyaspor">Antalyaspor</option>
+                    <option value="Fenerbahce">Fenerbahçe</option>
+                    <option value="Sivasspor">Sivasspor</option>
+                    <option value="Alanyaspor">Alanyaspor</option>
+                    <option value="Samsunspor">Samsunspor</option>
+                    <option value="Rizespor">Rizespor</option>
+                    <option value="Bodrum">Bodrum</option>
+                    <option value="Konyaspor">Konyaspor</option>
+                    <option value="Kayserispor">Kayserispor</option>
+                    <option value="Goztepe">Göztepe</option>
+                    <option value="Adanademirspor">Adana Demirspor</option>
+                    <option value="Basaksehir">Başakşehir</option>
+                    <option value="Gaziantep">Gaziantep</option>
+                    <option value="Besiktas">Beşiktaş</option>
+                    <option value="Eyupspor">Eyüpspor</option>
+                    <option value="Hatayspor">Hatayspor</option>
+                    <option value="Trabzonspor">Trabzonspor</option>
+                </select>
+
+                <label for="deplasman">Deplasman:</label>
+                <select id="deplasman" name="deplasman" required>
+                    <option value="Galatasaray">Galatasaray</option>
+                    <option value="Kasimpasa">Kasımpaşa</option>
+                    <option value="Antalyaspor">Antalyaspor</option>
+                    <option value="Fenerbahce">Fenerbahçe</option>
+                    <option value="Sivasspor">Sivasspor</option>
+                    <option value="Alanyaspor">Alanyaspor</option>
+                    <option value="Samsunspor">Samsunspor</option>
+                    <option value="Rizespor">Rizespor</option>
+                    <option value="Bodrum">Bodrum</option>
+                    <option value="Konyaspor">Konyaspor</option>
+                    <option value="Kayserispor">Kayserispor</option>
+                    <option value="Goztepe">Göztepe</option>
+                    <option value="Adanademirspor">Adana Demirspor</option>
+                    <option value="Basaksehir">Başakşehir</option>
+                    <option value="Gaziantep">Gaziantep</option>
+                    <option value="Besiktas">Beşiktaş</option>
+                    <option value="Eyupspor">Eyüpspor</option>
+                    <option value="Hatayspor">Hatayspor</option>
+                    <option value="Trabzonspor">Trabzonspor</option>
+                </select>
+
+                <label for="evSakat">Ev Sakat:</label>
+                <input type="number" id="evSakat" name="evSakat" placeholder="Ev sahibi sakat oyuncu" required min="0">
+
+                <label for="deplasmanSakat">Deplasman Sakat:</label>
+                <input type="number" id="deplasmanSakat" name="deplasmanSakat" placeholder="Deplasman sakat oyuncu" required min="0">
+
+                <label for="evCezali">Ev Cezalı:</label>
+                <input type="number" id="evCezali" name="evCezali" placeholder="Ev sahibi cezalı oyuncu" required min="0">
+
+                <label for="deplasmanCezali">Deplasman Cezalı:</label>
+                <input type="number" id="deplasmanCezali" name="deplasmanCezali" placeholder="Deplasman cezalı oyuncu" required min="0">
+
+                <button type="submit" class="submit-button">Tahmin Et</button>
+            </form>
+        </section>
+        <section class="result-section">
+            @if (ViewBag.Result != null)
+            {
+                <p class="result-message">
+                    <strong>Tahmin Sonucu:</strong>
+                    @if (ViewBag.Result == "Beraberlik")
+                    {
+                        <span>Beraberlik</span>
+                        ;
+                    }
+                    else if (ViewBag.Result == "EvSahibiKazanir")
+                    {
+                        <span>Ev Sahibi Kazanır</span>
+                        ;
+                    }
+                    else if (ViewBag.Result == "DeplasmanKazanir")
+                    {
+                        <span>Deplasman Kazanır</span>
+                        ;
+                    }
+                </p>
+            }
+
+            @if (ViewBag.Error != null)
+            {
+                <p class="error-message">@ViewBag.Error</p>
+            }
+        </section>
+    </main>
+
+    <script>
+        function validateForm() {
+            const evSahibi = document.querySelector('[name="evSahibi"]').value;
+            const deplasman = document.querySelector('[name="deplasman"]').value;
+            if (evSahibi === deplasman) {
+                alert("Ev sahibi ve deplasman aynı olamaz!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

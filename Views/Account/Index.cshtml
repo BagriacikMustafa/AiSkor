@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <style>
+        /* Stil dosyası optimize edilmiştir */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #034694, #ffffff);
+            color: #333;
+        }
+
+        .header, .footer {
+            background-color: #034694;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form-section {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        select, input, button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #034694;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #022C6A;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Kayıt Ol</h1>
+    </div>
+
+    <div class="form-section">
+        <form action="/Account/Register" method="post">
+            <label for="firstName">Ad</label>
+            <input type="text" id="firstName" name="FirstName" placeholder="Adınızı girin" required>
+
+            <label for="lastName">Soyad</label>
+            <input type="text" id="lastName" name="LastName" placeholder="Soyadınızı girin" required>
+
+            <label for="username">Kullanıcı Adı</label>
+            <input type="text" id="username" name="Username" placeholder="Kullanıcı adınızı girin" required>
+
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="Email" placeholder="E-posta adresinizi girin" required>
+
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="PhoneNumber" placeholder="Telefon numaranızı girin" required>
+
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="PasswordHash" placeholder="Şifrenizi girin" required>
+
+            <label for="gender">Cinsiyet</label>
+            <select id="gender" name="Gender" required>
+                <option value="">Seçiniz</option>
+                <option value="Erkek">Erkek</option>
+                <option value="Kadın">Kadın</option>
+                <option value="Diğer">Diğer</option>
+            </select>
+
+            <label for="birthDate">Doğum Tarihi</label>
+            <input type="date" id="birthDate" name="BirthDate" required>
+
+            <button type="submit">Kayıt Ol</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 - Tüm Hakları Saklıdır</p>
+    </div>
+
+</body>
+</html>

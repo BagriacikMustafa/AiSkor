@@ -1,0 +1,42 @@
+﻿/* Genel ayarlar */
+body {
+    font-family: 'Titillium Web', Tahoma, sans-serif;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Fikstür kartı */
+.card.softBG {
+    background-color: #f2f2f2;
+    border: 1px solid #dedede;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablo tasarımı */
+.table.fiksturListesiTable {
+    font-size: 12px;
+    color: #000;
+    width: 100%;
+}
+
+    .table.fiksturListesiTable th {
+        background-color: #c7c4c4;
+        color: #000;
+        text-align: center;
+    }
+
+    .table.fiksturListesiTable td {
+        text-align: center;
+    }
+
+/* Başlık düzeni */
+h1, h3 {
+    color: var(--primary);
+}
+
+/* Mobil görünüm düzenlemeleri */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}

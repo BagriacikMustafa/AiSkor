@@ -1,0 +1,140 @@
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-dogrcrjzgi] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-dogrcrjzgi] {
+  color: #0077cc;
+}
+
+.header[b-dogrcrjzgi], .footer[b-dogrcrjzgi] {
+    background-color: #034694;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+ 
+
+.btn-primary[b-dogrcrjzgi] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-dogrcrjzgi], .nav-pills .show > .nav-link[b-dogrcrjzgi] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-dogrcrjzgi] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-dogrcrjzgi] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-dogrcrjzgi] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-dogrcrjzgi] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+
+
+/* Genel düzenlemeler */
+*[b-dogrcrjzgi] {
+    box-sizing: border-box;
+}
+
+html[b-dogrcrjzgi], body[b-dogrcrjzgi] {
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 22px;
+    background-image: none !important;
+    width: 100%;
+}
+
+:root[b-dogrcrjzgi] {
+    --primary: #b20211;
+    --secondary: #840000;
+    --swiper-navigation-size: 44px;
+    --swiper-theme-color: #007aff;
+}
+
+/* Navbar Stili */
+.nav[b-dogrcrjzgi] {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.row[b-dogrcrjzgi] {
+    display: flow-root;
+    width: 100%;
+}
+
+.red-line[b-dogrcrjzgi] {
+    background-color: var(--primary);
+}
+
+/* Mobil Menü */
+.mobile-menu .m-menu[b-dogrcrjzgi] {
+    display: none; /* Menü simgesi başlangıçta gizli */
+}
+
+#nav-menu[b-dogrcrjzgi] {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+    #nav-menu li[b-dogrcrjzgi] {
+        padding: 10px 20px;
+    }
+
+    #nav-menu a[b-dogrcrjzgi] {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #nav-menu a:hover[b-dogrcrjzgi] {
+            color: var(--secondary);
+        }
+
+/* Mobil Menüdeki simge için */
+@media (max-width: 768px) {
+    .mobile-menu .m-menu[b-dogrcrjzgi] {
+        display: block; /* Menü simgesini görünür yap */
+        cursor: pointer;
+    }
+
+    #nav-menu[b-dogrcrjzgi] {
+        display: none; /* Menü başlangıçta gizli */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: var(--primary);
+    }
+
+        #nav-menu li[b-dogrcrjzgi] {
+            padding: 15px;
+            text-align: center;
+        }
+
+    /* Menü simgesi tıklanınca nav-menu'yu açmak için */
+    .mobile-menu.open #nav-menu[b-dogrcrjzgi] {
+        display: flex;
+    }
+}
+

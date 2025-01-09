@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <style>
+        /* Stil dosyası optimize edilmiştir */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #034694, #ffffff);
+            color: #333;
+        }
+
+        .header, .footer {
+            background-color: #034694;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form-section {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #034694;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #022C6A;
+            }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .success-message {
+            color: green;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .links {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+            .links a {
+                color: #034694;
+                text-decoration: none;
+                font-size: 0.9em;
+            }
+
+                .links a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Giriş Yap</h1>
+    </div>
+
+    <div class="form-section">
+        <!-- Başarı Mesajı -->
+        <div class="success-message" id="successMessage" style="display: none;">
+            Giriş başarılı!
+        </div>
+
+        <!-- Hata Mesajı -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            Geçersiz kullanıcı adı/e-posta veya şifre.
+        </div>
+
+        <form action="/Account/Login" method="post">
+            <label for="usernameOrEmail">Kullanıcı Adı veya E-posta</label>
+            <input type="text" id="usernameOrEmail" name="usernameOrEmail" placeholder="Kullanıcı adı veya e-posta" required>
+
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="password" placeholder="Şifrenizi girin" required>
+
+            <button type="submit">Giriş Yap</button>
+        </form>
+
+        <div class="links">
+            <a href="/Account/Register">Hesabınız yok mu? Kayıt Ol</a><br>
+            <a href="/Account/ForgotPassword">Şifremi Unuttum</a>
+        </div>
+    </div>
+
+</body>
+</html>

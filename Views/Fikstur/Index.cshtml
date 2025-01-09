@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<AiSkor.Models.Fikstur>
+
+<div class="container">
+    <h1 class="text-center mb-4">Fikstür</h1>
+    <div class="row">
+        @foreach (var ikiHaftaGrubu in Model.GroupBy(f => f.Hafta).Chunk(2))
+        {
+            <div class="row mb-4">
+                @foreach (var haftaGrubu in ikiHaftaGrubu)
+                {
+                    <div class="col-md-6">
+                        <div class="card softBG p-3">
+                            <h3 class="text-center">@haftaGrubu.Key. Hafta</h3>
+                            <table class="table table-bordered table-striped fiksturListesiTable">
+                                <thead>
+                                    <tr>
+                                        <th>Ev Sahibi</th>
+                                        <th>Skor</th>
+                                        <th>Deplasman</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var mac in haftaGrubu)
+                                    {
+                                        <tr>
+                                            <td>@mac.EvSahibi</td>
+                                            <td class="text-center">
+                                                @if (mac.EvSkor.HasValue && mac.DeplasmanSkor.HasValue)
+                                                {
+                                                    @($"{mac.EvSkor} - {mac.DeplasmanSkor}")
+                                                }
+                                                else
+                                                {
+                                                    @("Belirlenmedi")
+                                                }
+                                            </td>
+                                            <td>@mac.Deplasman</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

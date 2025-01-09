@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<AiSkor.Models.PuanDurumu>
+
+<div class="container">
+    <h1>Puan Durumu</h1>
+    <div>
+        <label>Hafta Seçiniz:</label>
+        <div id="weekButtons" style="display: grid; grid-template-columns: repeat(18, 1fr); gap: 5px; margin-top: 10px;">
+            @for (int i = 1; i <= 38; i++)
+            {
+                    <button 
+                        class="weekButton" 
+                        data-week="@i" 
+                        style="padding: 5px; text-align: center; cursor: pointer; border: 1px solid #ccc; background-color: @(i == ViewBag.Hafta ? "#f00" : "#fff"); color: @(i == ViewBag.Hafta ? "#fff" : "#000"); font-size: 12px;"
+                        onclick="filterWeek(@i)">
+                    @i
+                    </button>
+            }
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>Sıra</th>
+                <th>Takım Adı</th>
+                <th>O</th>
+                <th>G</th>
+                <th>B</th>
+                <th>M</th>
+                <th>A</th>
+                <th>Y</th>
+                <th>AV</th>
+                <th>P</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var (takim, index) in Model.Select((takim, index) => (takim, index)))
+            {
+                    <tr>
+                        <td>@(index + 1)</td>
+                        <td>@takim.TakimAdi</td>
+                        <td>@takim.O</td>
+                        <td>@takim.G</td>
+                        <td>@takim.B</td>
+                        <td>@takim.M</td>
+                        <td>@takim.A</td>
+                        <td>@takim.Y</td>
+                        <td>@takim.AV</td>
+                        <td>@takim.P</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function filterWeek(week) {
+        // Yeni URL'ye yönlendir
+        const newUrl = `/PuanDurumu/Haftalik?hafta=${week}`;
+        window.location.href = newUrl; // Sayfayı yönlendir
+    }
+</script>

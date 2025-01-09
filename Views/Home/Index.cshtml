@@ -1,0 +1,289 @@
+﻿@{
+    ViewData["Title"] = "Maç Sonuçları";
+}
+
+<div class="container">
+    <h1>Maç Sonuçları</h1>
+
+    <!-- Tarih Seçici -->
+    <div class="date-picker-container">
+        <button class="arrow-btn" onclick="prevDates()">&lt;</button>
+        <div class="date-list" id="dateList"></div>
+        <button class="arrow-btn" onclick="nextDates()">&gt;</button>
+        <button class="calendar-btn" onclick="openCalendar()">&#128197;</button>
+    </div>
+
+    <!-- Maç Sonuçları -->
+    <div id="match-results"></div>
+</div>
+
+<script>
+    const dateList = document.getElementById("dateList");
+    let currentIndex = 0;
+    const visibleDates = 5;
+    let selectedDate = new Date();
+
+    // Tüm zamanlar için tarih üretici fonksiyon
+    function generateDates(startDate, endDate) {
+        const dates = [];
+        const currentDate = new Date(startDate);
+
+        while (currentDate <= endDate) {
+            const day = currentDate.toLocaleDateString('tr-TR', { weekday: 'short' }).toUpperCase();
+            const date = currentDate.toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit' });
+            dates.push({ day, date, fullDate: new Date(currentDate) });
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        return dates;
+    }
+
+    const startDate = new Date("2025-01-01");
+    const endDate = new Date("2025-12-31");
+    const dates = generateDates(startDate, endDate);
+
+    function updateDateList() {
+        dateList.innerHTML = "";
+        for (let i = currentIndex; i < currentIndex + visibleDates && i < dates.length; i++) {
+            const dateItem = document.createElement("div");
+            dateItem.classList.add("date-item");
+            if (dates[i].fullDate.getTime() === selectedDate?.getTime()) {
+                dateItem.classList.add("active");
+            }
+            dateItem.innerHTML = `${dates[i].day} <br> ${dates[i].date}`;
+            dateItem.onclick = () => selectDate(dates[i].fullDate);
+            dateList.appendChild(dateItem);
+        }
+    }
+
+    function prevDates() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateDateList();
+        }
+    }
+
+    function nextDates() {
+        if (currentIndex + visibleDates < dates.length) {
+            currentIndex++;
+            updateDateList();
+        }
+    }
+
+    function openCalendar() {
+        console.log("Takvim açıldı!");
+    }
+
+    function fetchMatches(date) {
+        selectedDate = new Date(date);
+        updateDateList();
+
+        fetch(`/Home/GetMatchesByDate?date=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById("match-results");
+                container.innerHTML = "";
+
+                if (data.error) {
+                    container.innerHTML = `<p style="color:red;">${data.error}</p>`;
+                    return;
+                }
+
+                const groupedMatches = data.reduce((groups, match) => {
+                    groups[match.lig] = groups[match.lig] || [];
+                    groups[match.lig].push(match);
+                    return groups;
+                }, {});
+
+                Object.keys(groupedMatches).forEach(lig => {
+                    const ligContainer = document.createElement("div");
+                    ligContainer.classList.add("lig-container");
+
+                    ligContainer.innerHTML = `
+                            <h2 class="lig-title">${lig}</h2>
+                            <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th>Saat</th>
+                                        <th>Takım 1</th>
+                                        <th>Skor</th>
+                                        <th>Takım 2</th>
+                                        <th>İlk Yarı Skoru</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${groupedMatches[lig].map(match => `
+                                        <tr>
+                                            <td>${match.saat}</td>
+                                            <td>${match.takim1}</td>
+                                            <td>${match.skor1} - ${match.skor2}</td>
+                                            <td>${match.takim2}</td>
+                                            <td>${match.ilkYariSkoru}</td>
+                                        </tr>
+                                    `).join("")}
+                                </tbody>
+                            </table>
+                        `;
+                    container.appendChild(ligContainer);
+                });
+            })
+            .catch(error => {
+                console.error("Hata:", error);
+                document.getElementById("match-results").innerHTML = `<p style="color:red;">Bir hata oluştu.</p>`;
+            });
+    }
+
+    function selectDate(date) {
+        fetchMatches(date.toISOString().slice(0, 10));
+    }
+
+    function setInitialIndex() {
+        for (let i = 0; i < dates.length; i++) {
+            if (dates[i].fullDate.toDateString() === selectedDate.toDateString()) {
+                currentIndex = Math.max(0, i - Math.floor(visibleDates / 2));
+                break;
+            }
+        }
+    }
+
+    setInitialIndex();
+    updateDateList();
+    fetchMatches(selectedDate.toISOString().slice(0, 10));
+</script>
+
+<style>
+    /* Genel Sayfa Stili */
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center; /* Yatayda ortalama */
+        align-items: flex-start; /* Dikeyde üstten başlat */
+        min-height: 100vh; /* Sayfanın tamamını kapsar */
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+
+    /* Ana Konteyner */
+    .container {
+        width: 90%; /* Sayfanın %90'ını kapla */
+        max-width: 1000px; /* Maksimum genişlik */
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 30px auto;
+        box-sizing: border-box;
+    }
+
+    /* Başlık */
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    /* Tarih Seçici */
+    .date-picker-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Tarih kutularını yatayda dağıt */
+        background-color: #f9f9f9;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 1000px;
+        min-height: 60px;
+        box-sizing: border-box;
+    }
+
+    .arrow-btn, .calendar-btn {
+        flex-shrink: 0; /* Kenar düğmeler küçülmesin */
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #007bff;
+        padding: 5px 10px;
+    }
+
+    .date-list {
+        display: flex;
+        overflow-x: auto; /* Yatay kaydırma */
+        gap: 10px; /* Aralarına boşluk koy */
+        justify-content: center; /* Ortala */
+        width: 70%;
+    }
+
+    .date-item {
+        text-align: center;
+        min-width: 100px; /* Tarih kutularının genişliği */
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: #333;
+        cursor: pointer;
+    }
+
+        .date-item.active {
+            font-weight: bold;
+            color: orange;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+    /* Maç Sonuçları */
+    #match-results {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        box-sizing: border-box; /* Padding dahil genişlik */
+        overflow-x: auto; /* Taşarsa kaydır */
+    }
+
+    /* Lig Bölümü */
+    .lig-container {
+        margin-bottom: 30px;
+    }
+
+    .lig-title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #444;
+        margin-bottom: 10px;
+    }
+
+    /* Tablo Stili */
+    .styled-table {
+        width: 100%;
+        max-width: 1000px; /* Tablo genişliği artırıldı */
+        border-collapse: collapse;
+        margin: 20px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+    }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 15px; /* Hücre içi boşlukları artır */
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .styled-table th {
+            background-color: #007bff;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .styled-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .styled-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+</style>

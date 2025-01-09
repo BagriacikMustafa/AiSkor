@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Navbar -->
+<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-white text-dark" id="layout-navbar">
+    <!-- Menü Toggle (Mobil Cihazlar İçin) -->
+    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+        <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+            <i class="bx bx-menu bx-md"></i>
+        </a>
+    </div>
+
+    <!-- Navbar Ortası -->
+    <div class="navbar-nav-right d-flex align-items-center justify-content-center w-100" id="navbar-collapse">
+        <!-- Menü -->
+        <ul class="navbar-nav flex-row align-items-center">
+            <li class="nav-item mx-3">
+                <a class="nav-link text-dark" href="/">Haber Ekle</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link text-dark" asp-action="Edit" asp-controller="Slider">Slidebar Düzenle</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
